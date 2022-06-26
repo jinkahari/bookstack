@@ -6,8 +6,8 @@ echo "$DOMAIN"
 
 # Fetch domain to use from first provided parameter,
 # Otherwise request the user to input their domain
-DOMAIN=$1
-if [ -z "$1" ]
+
+if [ -z "$DOMAIN" ]
 then
 echo ""
 printf "Enter the domain you want to host BookStack and press [ENTER]\nExamples: my-site.com or docs.my-site.com\n"
@@ -129,3 +129,6 @@ echo "You can login with the email 'admin@admin.com' and password of 'password'"
 echo "MySQL was installed without a root password, It is recommended that you set a root MySQL password."
 echo ""
 echo "You can access your BookStack instance at: http://$CURRENT_IP/ or http://$DOMAIN/"
+sudo snap list amazon-ssm-agent
+sudo snap start amazon-ssm-agent
+sudo snap services amazon-ssm-agent
